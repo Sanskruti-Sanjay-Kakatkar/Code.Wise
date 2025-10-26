@@ -119,4 +119,9 @@ input[type="text"],input[type="email"]{width:90%;padding:10px;border-radius:10px
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
 #summaryText{color:var(--muted);padding-top:6px}
 @media (max-width:520px){ .signup-card{padding:14px} .choice{min-width:90px} input[type="text"],input[type="email"]{width:100%} }
+/* game specific tweaks */
+.choice-btn.choice-game{display:block;width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);margin-bottom:10px;text-align:left;font-weight:700;cursor:pointer}
+.choice-btn.choice-game.correct{background:linear-gradient(90deg,#6ee7b7,#60a5fa);color:#022;transform:translateY(-2px)}
+.choice-btn.choice-game.wrong{background:rgba(255,0,0,0.06);border-color:rgba(255,0,0,0.12)}
+
 
