@@ -1,72 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Code.Wise • Challenge</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code.Wise Game</title>
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    .lesson-card {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .lesson-card:hover {
+      transform: scale(1.05);
+      background: #e9f5ff;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">Code.Wise</div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="login.html">Profile</a>
-      </nav>
-    </div>
-  </header>
+  <h1 id="welcomeText">Welcome back 👋</h1>
+  <p>Choose your next lesson below:</p>
+  <div id="lessonsContainer"></div>
 
-  <main class="container" style="padding-top:28px;padding-bottom:40px">
-    <section class="quiz-wrap">
-      <div class="quiz-card" id="quizCard">
-        <div class="quiz-header">
-          <div>
-            <div id="levelTag" style="font-weight:800;font-size:0.95rem">Level</div>
-            <div id="titleSmall" class="muted" style="font-size:0.85rem">Quick challenge to level up</div>
-          </div>
-          <div style="text-align:right">
-            <div class="muted" id="progressLabel">Question 0 / 0</div>
-            <div id="scoreLabel" style="font-weight:800">Score: 0</div>
-          </div>
-        </div>
+  <script>
+    const user = JSON.parse(localStorage.getItem('codewise_user'));
+    const lessonsContainer = document.getElementById('lessonsContainer');
+    const welcome = document.getElementById('welcomeText');
 
-        <div id="questionArea" style="margin-top:14px">
-          <div id="questionText" style="font-weight:800;font-size:1.15rem">Loading question...</div>
+    if (user) {
+      welcome.textContent = `Hey ${user.name}, let's continue your ${user.lang} journey! 🚀`;
 
-          <div class="choices" id="choicesArea" style="margin-top:12px">
-            <!-- buttons injected by JS -->
-          </div>
+      const lang = user.lang.toLowerCase();
+      const lessons = {
+        html: ["Intro to HTML", "Tags & Structure", "Links & Images", "Forms & Inputs"],
+        css: ["Intro to CSS", "Colors & Fonts", "Flexbox Magic", "Grid Layout"],
+        js: ["Intro to JS", "Variables & Loops", "Functions 101", "DOM Manipulation"],
+        python: ["Intro to Python", "Data Types", "Loops & Functions", "Projects & Practice"]
+      };
 
-          <div id="feedback" class="muted" style="margin-top:10px; min-height:20px"></div>
-
-          <div class="quiz-controls" style="margin-top:14px;display:flex;gap:10px;justify-content:space-between;align-items:center">
-            <button id="skipBtn" class="btn ghost">Skip</button>
-            <div>
-              <button id="nextQBtn" class="btn" disabled>Next</button>
-            </div>
-          </div>
-        </div>
-
-        <div id="resultScreen" hidden style="text-align:center;padding:18px">
-          <h2>Nice! 🎉</h2>
-          <p id="resultText" class="muted"></p>
-          <div style="margin-top:14px;display:flex;gap:10px;justify-content:center">
-            <button id="retryBtn" class="btn ghost">Retry Level</button>
-            <button id="homeBtn" class="btn">Go Home</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© Code.Wise • Built by Sanscruuu</small>
-    </div>
-  </footer>
-
-  <script src="game.js"></script>
+      lessons[lang].forEach((title, i) => {
+        const card = document.createElement('div');
+        card.className = 'lesson-card';  
+        card.textContent = `Level ${i+1}: ${title}`;
+        card.onclick = () => alert(`Opening: ${title} 🚀`);
+        lessonsContainer.appendChild(card);
+      });
+    } else {
+      welcome.textContent = "Welcome, new learner!";
+    }
+  </script>
 </body>
-</html>
+</html>    
+
+         
