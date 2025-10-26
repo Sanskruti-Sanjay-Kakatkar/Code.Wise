@@ -71,3 +71,34 @@ body{
   .menu-btn{display:block}
   .hero-inner h1{font-size:1.4rem}
 }
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 2rem;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.login-container input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.login-container button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-container button:hover {
+  background-color: #0056b3;
+}
