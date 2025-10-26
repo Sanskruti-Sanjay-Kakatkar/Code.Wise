@@ -88,7 +88,7 @@ function saveAndShowSummary(){
 // go to main site
 document.getElementById('goToSiteBtn').addEventListener('click', () => {
   // redirect back to index page
-  window.location.href = 'index.html';
+  window.location.href = 'game.html';
 });
 
 // back buttons for other steps
