@@ -1,29 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login / Sign Up | Code.Wise</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up • Code.Wise</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="login-container">
-    <h2>Welcome to Code.Wise 🚀</h2>
-    <p>Log in or sign up to start learning coding the fun way!</p>
+  <main class="container">
+    <div class="signup-wrap">
+      <div class="signup-card" id="signupCard">
+        <!-- Progress -->
+        <div class="progress">
+          <div id="progressBar" class="progress-fill" style="width:0%"></div>
+        </div>
 
-    <form id="loginForm">
-      <input type="text" placeholder="Enter your name" required>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Start Learning 💻</button>
-    </form>
-  </div>
+        <!-- Step contents -->
+        <div class="step" data-step="0" id="step0">
+          <h2>Ready to level up? 🚀</h2>
+          <p class="muted">This quick 4-step setup takes 30 seconds. Let’s make it fun — Duolingo vibes.</p>
+          <button class="btn" id="startBtn">Start</button>
+        </div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      alert("Welcome aboard, future coder! 🎉");
-      window.location.href = "index.html";
-    });
-  </script>
+        <div class="step" data-step="1" id="step1" hidden>
+          <h3>What should we call you?</h3>
+          <input id="nameInput" type="text" placeholder="Type your name (eg. Sanscruuu)" />
+          <div class="controls">
+            <button class="btn ghost" id="back1">Back</button>
+            <button class="btn" id="next1">Next</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="2" id="step2" hidden>
+          <h3>And your email? (for progress save)</h3>
+          <input id="emailInput" type="email" placeholder="your@email.com" />
+          <div class="controls">
+            <button class="btn ghost" id="back2">Back</button>
+            <button class="btn" id="next2">Next</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="3" id="step3" hidden>
+          <h3>How much coding experience do you have?</h3>
+          <div class="choices-row" id="levelChoices">
+            <button class="choice">Beginner</button>
+            <button class="choice">Intermediate</button>
+            <button class="choice">Pro Hacker 😎</button>
+          </div>
+          <div class="controls">
+            <button class="btn ghost" id="back3">Back</button>
+            <button class="btn" id="next3">Next</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="4" id="step4" hidden>
+          <h3>Pick your first language</h3>
+          <div class="choices-row" id="langChoices">
+            <button class="choice">HTML</button>
+            <button class="choice">JavaScript</button>
+            <button class="choice">Python</button>
+            <button class="choice">C++</button>
+          </div>
+          <div class="controls">
+            <button class="btn ghost" id="back4">Back</button>
+            <button class="btn" id="finishBtn">Finish</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="5" id="step5" hidden>
+          <h2>All set! 🎉</h2>
+          <p id="summaryText" class="muted"></p>
+          <div style="margin-top:18px">
+            <button class="btn" id="goToSiteBtn">Go to Site</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="login.js"></script>
 </body>
 </html>
