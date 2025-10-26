@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up | Code.Wise</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome to Code.Wise 🚀</h2>
+    <p>Log in or sign up to start learning coding the fun way!</p>
+
+    <form id="loginForm">
+      <input type="text" placeholder="Enter your name" required>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Start Learning 💻</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Welcome aboard, future coder! 🎉");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
