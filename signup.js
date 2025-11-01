@@ -39,3 +39,6 @@
   <p id="summaryText"></p>
   <button id="goToSiteBtn">Start Learning!</button>
 </div>
+<div id="progressBar" style="width:0%; height:5px; background:#007bff; margin-bottom:20px;"></div>
+<script src="signup.js"></script>
+
