@@ -42,3 +42,12 @@
 <div id="progressBar" style="width:0%; height:5px; background:#007bff; margin-bottom:20px;"></div>
 <script src="signup.js"></script>
 
+if (selectedLanguage === "html") {
+  window.location.href = "html-lessons.html";
+} else if (selectedLanguage === "css") {
+  window.location.href = "css-lessons.html";
+} else if (selectedLanguage === "javascript") {
+  window.location.href = "js-lessons.html";
+} else if (selectedLanguage === "python") {
+  window.location.href = "python-lessons.html";
+}
