@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Code.Wise</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0a23, #1a1a40);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 450px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    .step {
+      display: none;
+    }
+    .choice {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .choice.active {
+      background: #ff5c8d;
+      color: white;
+      font-weight: 600;
+    }
+    button {
+      background: #ff5c8d;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 1rem;
+      font-weight: 600;
+    }
+    #progressBar {
+      width: 0;
+      height: 6px;
+      background: #ff5c8d;
+      border-radius: 3px;
+      margin-bottom: 1.5rem;
+      transition: width 0.4s ease;
+    }
+    input {
+      width: 80%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: none;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 Code.Wise Signup</h1>
+    <div id="progressBar"></div>
+
+    <!-- Step 0 -->
+    <div class="step">
+      <p>Welcome to <strong>Code.Wise</strong> — your journey to mastering coding starts here!</p>
+      <button id="startBtn">Let's Begin</button>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step" hidden>
+      <h2>What’s your name?</h2>
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <br>
+      <button id="next1">Next</button>
+      <button id="back1">Back</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" hidden>
+      <h2>Your email?</h2>
+      <input type="email" id="emailInput" placeholder="example@gmail.com" />
+      <br>
+      <button id="next2">Next</button>
+      <button id="back2">Back</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" hidden>
+      <h2>Pick your experience level 💪</h2>
+      <div id="levelChoices">
+        <div class="choice">Beginner</div>
+        <div class="choice">Intermediate</div>
+        <div class="choice">Pro</div>
+      </div>
+      <button id="next3">Next</button>
+      <button id="back3">Back</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step" hidden>
+      <h2>Choose your first language 🧠</h2>
+      <div id="langChoices">
+        <div class="choice">HTML</div>
+        <div class="choice">CSS</div>
+        <div class="choice">JavaScript</div>
+        <div class="choice">Python</div>
+      </div>
+      <button id="finishBtn">Finish</button>
+      <button id="back4">Back</button>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step" hidden>
+      <h2>Summary</h2>
+      <p id="summaryText"></p>
+      <button id="goToSiteBtn">Start Learning!</button>
+    </div>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>
