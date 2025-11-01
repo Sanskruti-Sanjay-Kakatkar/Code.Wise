@@ -111,3 +111,91 @@ function escapeHtml(s) {
 
 // Initialize
 showStep(0);
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".step");
+  const progressBar = document.getElementById("progressBar");
+  let currentStep = 0;
+  let selectedLanguage = "";
+  let selectedLevel = "";
+
+  function showStep(stepIndex) {
+    steps.forEach((step, i) => {
+      step.hidden = i !== stepIndex;
+    });
+    progressBar.style.width = ((stepIndex) / (steps.length - 1)) * 100 + "%";
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+  // Buttons
+  document.getElementById("startBtn").onclick = nextStep;
+  document.getElementById("next1").onclick = nextStep;
+  document.getElementById("back1").onclick = prevStep;
+  document.getElementById("next2").onclick = nextStep;
+  document.getElementById("back2").onclick = prevStep;
+  document.getElementById("next3").onclick = nextStep;
+  document.getElementById("back3").onclick = prevStep;
+  document.getElementById("back4").onclick = prevStep;
+
+  // Choice selections
+  document.querySelectorAll("#levelChoices .choice").forEach(choice => {
+    choice.onclick = () => {
+      document.querySelectorAll("#levelChoices .choice").forEach(c => c.classList.remove("active"));
+      choice.classList.add("active");
+      selectedLevel = choice.textContent.toLowerCase();
+    };
+  });
+
+  document.querySelectorAll("#langChoices .choice").forEach(choice => {
+    choice.onclick = () => {
+      document.querySelectorAll("#langChoices .choice").forEach(c => c.classList.remove("active"));
+      choice.classList.add("active");
+      selectedLanguage = choice.textContent.toLowerCase();
+    };
+  });
+
+  document.getElementById("finishBtn").onclick = () => {
+    const name = document.getElementById("nameInput").value;
+    const email = document.getElementById("emailInput").value;
+
+    if (!name || !email || !selectedLanguage) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    document.getElementById("summaryText").innerHTML = `
+      Welcome, <b>${name}</b>!<br>
+      Level: ${selectedLevel}<br>
+      Language: ${selectedLanguage.toUpperCase()}<br>
+      Email: ${email}
+    `;
+    nextStep();
+  };
+
+  document.getElementById("goToSiteBtn").onclick = () => {
+    if (selectedLanguage === "html") {
+      window.location.href = "html-lessons.html";
+    } else if (selectedLanguage === "css") {
+      window.location.href = "css-lessons.html";
+    } else if (selectedLanguage === "javascript") {
+      window.location.href = "js-lessons.html";
+    } else if (selectedLanguage === "python") {
+      window.location.href = "python-lessons.html";
+    }
+  };
+
+  showStep(currentStep);
+});
+
